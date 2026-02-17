@@ -1,0 +1,4 @@
+﻿src/App.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/Chatbot.tsx(2,31): error TS6133: 'X' is declared but its value is never read.
+src/components/Layout.tsx(3,15): error TS6133: 'BookOpen' is declared but its value is never read.
+src/components/Layout.tsx(3,25): error TS6133: 'MessageCircle' is declared but its value is never read.
