@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Upload, X, AlertCircle } from 'lucide-react';
-import axios from 'axios';
+import api from '../api';
 import Results from './Results';
 
 interface ImageUploadProps {
@@ -63,7 +63,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onResult, result }) => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:8000/predict', formData, {
+            const response = await api.post('/predict', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             onResult(response.data);

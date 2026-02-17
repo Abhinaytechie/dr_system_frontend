@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, Send, Minimize2 } from 'lucide-react';
-import axios from 'axios';
+import api from '../api';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useAuth } from '../contexts/AuthContext';
@@ -61,7 +61,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ context }) => {
         setLoading(true);
 
         try {
-            const res = await axios.post('http://localhost:8000/chat', {
+            const res = await api.post('/chat', {
                 message: userMessage,
                 prediction_result: context,
                 user_role: userRole

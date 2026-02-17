@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Search, Map as MapIcon, Loader2, Hospital, Star, ExternalLink } from 'lucide-react';
 
+import { API_BASE_URL } from '../api';
+
 interface Facility {
     id: string;
     name: string;
@@ -29,7 +31,7 @@ const EyeCareFacilities: React.FC = () => {
         setLoading(true);
         setError(null);
         try {
-            let url = 'http://localhost:8000/hospitals?';
+            let url = `${API_BASE_URL}/hospitals?`;
             if (params.lat && params.lng) {
                 url += `lat=${params.lat}&lng=${params.lng}`;
             } else if (params.city) {

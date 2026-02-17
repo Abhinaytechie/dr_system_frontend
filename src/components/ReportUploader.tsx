@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FileText, Upload, Loader2, CheckCircle2, AlertCircle, Sparkles, Brain } from 'lucide-react';
-import axios from 'axios';
+import api from '../api';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -98,7 +98,7 @@ const ReportUploader: React.FC<ReportUploaderProps> = ({ onAnalysisComplete }) =
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:8000/analyze-report-pdf', formData, {
+            const response = await api.post('/analyze-report-pdf', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 

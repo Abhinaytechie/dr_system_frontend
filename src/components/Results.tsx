@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AlertCircle, Info, CheckCircle, Download, Loader2, Stethoscope } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
-import axios from 'axios';
+import api from '../api';
 import Timeline from './Timeline';
 
 interface ResultsProps {
@@ -33,7 +33,7 @@ const Results: React.FC<ResultsProps> = ({ data }) => {
     const downloadReport = async () => {
         setDownloading(true);
         try {
-            const response = await axios.post('http://localhost:8000/download-report', {
+            const response = await api.post('/download-report', {
                 prediction_result: data,
                 user_message: ""
             }, {
