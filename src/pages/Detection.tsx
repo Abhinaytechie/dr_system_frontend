@@ -2,7 +2,6 @@ import React from 'react';
 import ImageUpload from '../components/ImageUpload';
 import MeshBackground from '../components/MeshBackground';
 import Chatbot from '../components/Chatbot';
-import { useAuth } from '../contexts/AuthContext';
 const Detection: React.FC = () => {
     const [predictionResult, setPredictionResult] = React.useState<any | null>(null);
 
